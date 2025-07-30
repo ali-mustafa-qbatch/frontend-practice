@@ -15,7 +15,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="bg-white border-b shadow">
+        <nav className="border-b shadow" style={{backgroundColor: "#121d2d"}}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     <div className="inline-flex">
@@ -23,14 +23,14 @@ const Navbar = () => {
                             <img src={logo} alt="Qbatch Logo" className="h-8 w-auto" />
                         </Link>
                         <div className="hidden md:flex space-x-6">
-                            <Link to="#" className="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Pricing</Link>
-                            <Link to="#" className="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">About</Link>
-                            <Link to="#" className="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Blog</Link>
-                            <Link to="#" className="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Wall of Love</Link>
+                            <Link to="#" className="text-gray-400 hover:text-blue-600 px-3 py-2 text-sm font-medium">Pricing</Link>
+                            <Link to="#" className="text-gray-400 hover:text-blue-600 px-3 py-2 text-sm font-medium">About</Link>
+                            <Link to="#" className="text-gray-400 hover:text-blue-600 px-3 py-2 text-sm font-medium">Blog</Link>
+                            <Link to="#" className="text-gray-400 hover:text-blue-600 px-3 py-2 text-sm font-medium">Wall of Love</Link>
                             <div className="relative inline-block text-left">
                                 <button
                                     onClick={toggleDropdown}
-                                    className="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium inline-flex items-center"
+                                    className="text-gray-400 hover:text-blue-600 px-3 py-2 text-sm font-medium inline-flex items-center"
                                     type="button"
                                 >
                                     Resources
@@ -54,14 +54,14 @@ const Navbar = () => {
 
 
                     <div className="hidden md:flex space-x-6">
-                        <Link to="/sign-in" className="text-gray-500 hover:text-blue-600 px-3 py-2 text-sm font-medium">Sign in</Link>
-                        <Link to="#" className="text-black-700 hover:text-blue-600 px-3 py-2 text-sm font-medium inline-flex gap-1">
+                        <Link to="/sign-in" className="text-gray-400 hover:text-blue-600 px-3 py-2 text-sm font-medium">Sign in</Link>
+                        <Link to="#" className="text-gray-200 hover:text-blue-600 px-3 py-2 text-sm font-medium inline-flex gap-1">
                             Request a Demo <p style={{ color: "blue" }}>→</p>
                         </Link>
                     </div>
 
                     <div className="md:hidden">
-                        <button type="button" onClick={toggleMenu} className="text-gray-700 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-controls="mobile-menu" aria-expanded={isOpen} aria-label="Toggle navigation menu" >
+                        <button type="button" onClick={toggleMenu} className="text-gray-700 hover:text-gray-100" aria-controls="mobile-menu" aria-expanded={isOpen} aria-label="Toggle navigation menu" >
                             <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true" >
                                 {isOpen ? (
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
@@ -75,24 +75,24 @@ const Navbar = () => {
             </div>
 
             <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`} id="mobile-menu">
-                <div className="px-4 pt-4 pb-6 space-y-2 bg-white border-b shadow-sm">
-                    <Link to="#" className="block text-gray-500 hover:text-blue-600 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
+                <div className="px-4 pt-4 pb-6 space-y-2 border-b shadow-sm" style={{backgroundColor:"#121d2d"}}>
+                    <Link to="#" className="block text-gray-400 hover:text-blue-600 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
                         Pricing
                     </Link>
-                    <Link to="#" className="block text-gray-500 hover:text-blue-600 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="#" className="block text-gray-400 hover:text-blue-600 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
                         About
                     </Link>
-                    <Link to="#" className="block text-gray-500 hover:text-blue-600 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="#" className="block text-gray-400 hover:text-blue-600 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
                         Blog
                     </Link>
-                    <Link to="#" className="block text-gray-500 hover:text-blue-600 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="#" className="block text-gray-400 hover:text-blue-600 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
                         Wall of Love
                     </Link>
 
                     <div className="relative">
                         <button
                             onClick={toggleDropdown}
-                            className="w-full text-left text-gray-500 hover:text-blue-600 px-3 py-2 text-base font-medium inline-flex items-center justify-between"
+                            className="w-full text-left text-gray-400 hover:text-blue-600 px-3 py-2 text-base font-medium inline-flex items-center justify-between"
                             type="button"
                         >
                             Resources
@@ -113,10 +113,10 @@ const Navbar = () => {
                         )}
                     </div>
                     <hr />
-                    <Link to="/sign-in" className="block text-gray-500 hover:text-blue-600 px-3 py-2 text-base font-medium">
+                    <Link to="/sign-in" className="block text-gray-400 hover:text-blue-600 px-3 py-2 text-base font-medium">
                         Sign in
                     </Link>
-                    <Link to="#" className="text-gray-700 hover:text-blue-600 px-3 py-2 text-base font-medium inline-flex items-center gap-1">
+                    <Link to="#" className="text-gray-200 hover:text-blue-600 px-3 py-2 text-base font-medium inline-flex items-center gap-1">
                         Request a Demo <span className="text-blue-600">→</span>
                     </Link>
                 </div>
