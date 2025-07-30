@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
 		<>
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<HeroSection />} />
+					<Route path="/" element={<><Navbar /><HeroSection /></>} />
 				</Routes>
 			</BrowserRouter>
 		</>
