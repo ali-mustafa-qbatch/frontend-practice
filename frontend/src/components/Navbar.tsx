@@ -52,11 +52,10 @@ const Navbar = () => {
                         </div>
                     </div>
 
-
                     <div className="hidden md:flex space-x-6">
                         <Link to="/sign-in" className="text-gray-400 hover:text-blue-600 px-3 py-2 text-sm font-medium">Sign in</Link>
                         <Link to="#" className="text-gray-200 hover:text-blue-600 px-3 py-2 text-sm font-medium inline-flex gap-1">
-                            Request a Demo <p style={{ color: "blue" }}>→</p>
+                            Request a Demo <span className="ml-2" style={{color:"#1b5cb7"}}>→</span>
                         </Link>
                     </div>
 
@@ -117,7 +116,7 @@ const Navbar = () => {
                         Sign in
                     </Link>
                     <Link to="#" className="text-gray-200 hover:text-blue-600 px-3 py-2 text-base font-medium inline-flex items-center gap-1">
-                        Request a Demo <span className="text-blue-600">→</span>
+                        Request a Demo <span className="ml-2" style={{color:"#1b5cb7"}}>→</span>
                     </Link>
                 </div>
             </div>
