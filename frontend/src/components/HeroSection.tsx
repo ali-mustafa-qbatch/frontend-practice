@@ -1,4 +1,4 @@
-import heroVideo from '../assets/video.mp4'
+// import heroVideo from '../assets/video.mp4'
 
 const HeroSection = () => {
 	return (

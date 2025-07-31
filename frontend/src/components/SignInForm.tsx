@@ -8,7 +8,7 @@ interface SignInFormInputs {
 };
 
 const SignInForm = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm<SignInFormInputs>();
+    const { register, handleSubmit } = useForm<SignInFormInputs>();
     const onSubmit: SubmitHandler<SignInFormInputs> = data => console.log(data);
     const [passwordToggle, setPasswordToggle] = useState(false);
 
