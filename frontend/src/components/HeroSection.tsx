@@ -1,3 +1,5 @@
+import heroVideo from '../assets/video.mp4'
+
 const HeroSection = () => {
 	return (
 		<section className="relative bg-[#121d2d] text-white overflow-hidden">
@@ -27,6 +29,17 @@ const HeroSection = () => {
 						alt="a girl"
 						className="relative z-10 shadow-lg"
 					/>
+
+					{/* <video
+						className="relative z-10 shadow-lg h-[309px] w-[464]"
+						controls
+						autoPlay
+						loop
+						muted
+					>
+						<source src={heroVideo} type="video/mp4" />
+						Your browser does not support the video tag.
+					</video> */}
 
 					<div className="absolute inset-0 flex items-center justify-center z-20">
 						<button className="w-16 h-16 rounded-full bg-white bg-opacity-80 flex items-center justify-center shadow-md">
