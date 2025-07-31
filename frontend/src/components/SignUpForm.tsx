@@ -14,13 +14,23 @@ interface SignUpFormInputs {
 };
 
 const SignUpForm = () => {
-    const { register, handleSubmit } = useForm<SignUpFormInputs>();
+    const { register, handleSubmit, setValue } = useForm<SignUpFormInputs>();
     const onSubmit: SubmitHandler<SignUpFormInputs> = data => console.log(data);
     const [passwordToggle, setPasswordToggle] = useState(false);
 
     const handlePasswordToggle = () => {
         setPasswordToggle(!passwordToggle);
     }
+
+    const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value.replace(/[^0-9]/g, '');
+        setValue('phoneNumber', value); 
+    };
+
+    const handleZipCodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value.replace(/[^0-9]/g, '');
+        setValue('zipCode', value); 
+    };
 
     return (
         <>
@@ -97,9 +107,18 @@ const SignUpForm = () => {
                                                 pattern: {
                                                     value: /^[3-9]\d{9}$/,
                                                     message: "Enter a valid phone number"
+                                                },
+                                                minLength: {
+                                                    value: 10,
+                                                    message: "Phone number should contain exactly 10 characters."
+                                                },
+                                                maxLength: {
+                                                    value: 10,
+                                                    message: "Phone number should contain exactly 10 characters."
                                                 }
                                             })}
                                             name="phone-number" type="text" className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 rounded-md outline-[#2173ea]" placeholder="300000000"
+                                            onChange={handlePhoneChange}
                                         />
                                     </div>
                                 </div>
@@ -112,7 +131,7 @@ const SignUpForm = () => {
                                                 pattern: {
                                                     value: /^(https?:\/\/)?([a-z0-9-]+\.)+[a-z0-9]{2,}(\/[^\s]*)?$/,
                                                     message: "Enter a valid website url."
-                                                } 
+                                                }
 
                                             })}
                                             name="website" type="text" className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-[#2173ea]" placeholder="https://www.example.com"
@@ -128,10 +147,18 @@ const SignUpForm = () => {
                                                 required: {
                                                     value: true,
                                                     message: "Zip Code is required."
+                                                },
+                                                minLength: {
+                                                    value: 5,
+                                                    message: "Zip Code should contain exactly 5 characters."
+                                                },
+                                                maxLength: {
+                                                    value: 5,
+                                                    message: "Zip Code should contain exactly 5 characters."
                                                 }
-
                                             })}
                                             name="zip-code" type="text" className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-[#2173ea]" placeholder="12345"
+                                            onChange={handleZipCodeChange}
                                         />
                                     </div>
                                 </div>
