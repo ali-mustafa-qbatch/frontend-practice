@@ -33,7 +33,7 @@ const ServicesSection = () => {
     ]
     return (
         <>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-40 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center relative z-10">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center relative z-10">
                 {
                     services.map((service) => (
                         <div key={service.id}>
