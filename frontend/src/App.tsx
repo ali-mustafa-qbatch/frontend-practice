@@ -5,6 +5,7 @@ import ServicesSection from "./components/ServicesSection";
 import FeaturesSection from "./components/FeaturesSection";
 import RequestDemoSection from "./components/RequestDemoSection";
 import SignInForm from "./components/SignInForm";
+import SignUpForm from "./components/SignUpForm";
 import Footer from "./components/Footer";
 
 function App() {
@@ -31,6 +32,16 @@ function App() {
 							<>
 								<Navbar />
 								<SignInForm />
+								<Footer />
+							</>
+						}
+					/>
+					<Route
+						path="/sign-up"
+						element={
+							<>
+								<Navbar />
+								<SignUpForm />
 								<Footer />
 							</>
 						}
