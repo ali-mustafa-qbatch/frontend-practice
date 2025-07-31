@@ -3,32 +3,38 @@ const ServicesSection = () => {
         {
             id: 1,
             heading: "Robust Workflow",
-            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo."
+            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo.",
+            icon: "📄"
         },
         {
             id: 2,
             heading: "Robust Workflow",
-            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo."
+            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo.",
+            icon: "🚀"
         },
         {
             id: 3,
             heading: "Robust Workflow",
-            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo."
+            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo.",
+            icon: "💡"
         },
         {
             id: 4,
             heading: "Robust Workflow",
-            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo."
+            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo.",
+            icon: "🛠️"
         },
         {
             id: 5,
             heading: "Robust Workflow",
-            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo."
+            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo.",
+            icon: "🔒"
         },
         {
             id: 6,
             heading: "Robust Workflow",
-            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo."
+            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo.",
+            icon: "📈"
         }
     ]
     return (
@@ -38,7 +44,7 @@ const ServicesSection = () => {
                     services.map((service) => (
                         <div key={service.id}>
                             <button className="w-18 h-18 bg-[#2274ea] rounded-full flex items-center justify-center mb-5">
-                                <span role="img" aria-label="document">📄</span>
+                                <span role="img" aria-label="document" className="text-2xl">{service.icon}</span>
                             </button>
                             <h1 className="text-[#2b3546] text-2xl md:text-2xl font-bold leading-tight my-2 font-playfair">
                                 <b>{service.heading}</b>
