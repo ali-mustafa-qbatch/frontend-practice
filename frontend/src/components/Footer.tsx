@@ -22,13 +22,13 @@ const Footer = () => {
                                 How it works
                             </h6>
                             <p className="mb-4">
-                                <a className="text-[#6b737d]">Overview</a>
+                                <a className="text-[#6b737d] cursor-pointer hover:text-[#5997ee]">Overview</a>
                             </p>
                             <p className="mb-4">
-                                <a className="text-[#6b737d]">Pricing</a>
+                                <a className="text-[#6b737d] cursor-pointer hover:text-[#5997ee]">Pricing</a>
                             </p>
                             <p className="mb-4">
-                                <a className="text-[#6b737d]">Service Areas</a>
+                                <a className="text-[#6b737d] cursor-pointer hover:text-[#5997ee]">Service Areas</a>
                             </p>
                         </div>
 
@@ -38,13 +38,13 @@ const Footer = () => {
                                 Resources
                             </h6>
                             <p className="mb-4">
-                                <a className="text-[#6b737d]">Customer Stories</a>
+                                <a className="text-[#6b737d] cursor-pointer hover:text-[#5997ee]">Customer Stories</a>
                             </p>
                             <p className="mb-4">
-                                <a className="text-[#6b737d]">Knowledge Base</a>
+                                <a className="text-[#6b737d] cursor-pointer hover:text-[#5997ee]">Knowledge Base</a>
                             </p>
                             <p className="mb-4">
-                                <a className="text-[#6b737d]">Contact Us</a>
+                                <a className="text-[#6b737d] cursor-pointer hover:text-[#5997ee]">Contact Us</a>
                             </p>
                         </div>
 
@@ -54,16 +54,16 @@ const Footer = () => {
                                 Products
                             </h6>
                             <p className="mb-4">
-                                <a className="text-[#6b737d]">Corporate Partners</a>
+                                <a className="text-[#6b737d] cursor-pointer hover:text-[#5997ee]">Corporate Partners</a>
                             </p>
                             <p className="mb-4">
-                                <a className="text-[#6b737d]">Secure Identity</a>
+                                <a className="text-[#6b737d] cursor-pointer hover:text-[#5997ee]">Secure Identity</a>
                             </p>
                             <p className="mb-4">
-                                <a className="text-[#6b737d]">Legal Help</a>
+                                <a className="text-[#6b737d] cursor-pointer hover:text-[#5997ee]">Legal Help</a>
                             </p>
                             <p>
-                                <a className="text-[#6b737d]">First Capital</a>
+                                <a className="text-[#6b737d] cursor-pointer hover:text-[#5997ee]">First Capital</a>
                             </p>
                         </div>
 
@@ -73,19 +73,19 @@ const Footer = () => {
                                 Company
                             </h6>
                             <p className="mb-4">
-                                <a className="text-[#6b737d]">About Us</a>
+                                <a className="text-[#6b737d] cursor-pointer hover:text-[#5997ee]">About Us</a>
                             </p>
                             <p className="mb-4">
-                                <a className="text-[#6b737d]">Careers</a>
+                                <a className="text-[#6b737d] cursor-pointer hover:text-[#5997ee]">Careers</a>
                             </p>
                             <p className="mb-4">
-                                <a className="text-[#6b737d]">Terms of Use</a>
+                                <a className="text-[#6b737d] cursor-pointer hover:text-[#5997ee]">Terms of Use</a>
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <hr style={{backgroundColor: "#6b737d"}} />
+                <hr className="border-t border-[#6b737d]" />
             </div>
 
             <div className="p-6 flex justify-between">
