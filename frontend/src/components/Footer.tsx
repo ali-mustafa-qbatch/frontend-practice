@@ -90,7 +90,7 @@ const Footer = () => {
 
             <div className="p-6 flex justify-between">
                 <span className="text-[#6b737d]">Cruip uses cookies to ensure you get the best experience on our website.</span>
-                <a className="font-semibold text-[#7779eb]" href="#">I agree</a>
+                <a className="font-semibold text-[#7779eb] hover:text-[#4f52e9]" href="#">I agree</a>
             </div>
         </footer>
     )
