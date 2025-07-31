@@ -4,6 +4,7 @@ import HeroSection from "./components/HeroSection";
 import ServicesSection from "./components/ServicesSection";
 import FeaturesSection from "./components/FeaturesSection";
 import RequestDemoSection from "./components/RequestDemoSection";
+import Footer from "./components/Footer";
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 								<ServicesSection />
 								<FeaturesSection />
 								<RequestDemoSection />
+								<Footer />
 							</>
 						}
 					/>
