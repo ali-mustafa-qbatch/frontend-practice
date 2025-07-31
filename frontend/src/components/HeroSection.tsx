@@ -3,7 +3,7 @@ const HeroSection = () => {
 		<section className="relative bg-[#121d2d] text-white overflow-hidden">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-40 grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10">
 				<div>
-					<h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
+					<h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 font-['Playfair_Display']">
 						Create stunning <br /> web experiences
 					</h1>
 					<p className="text-gray-300 mb-8 max-w-md">
