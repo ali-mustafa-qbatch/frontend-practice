@@ -1,4 +1,4 @@
-import logo from '../assets/Qbatch_logo.svg'
+import logo from '../assets/footer_logo.png'
 import { Link } from 'react-router-dom'
 
 const Footer = () => {
@@ -9,7 +9,7 @@ const Footer = () => {
                     <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-5">
                         <div className="">
                             <Link to="/">
-                                <img src={logo} alt="Qbatch Logo" className="h-8 w-auto mb-4" />
+                                <img src={logo} alt="Qbatch Logo" className="h-14 w-auto" />
                             </Link>
                             <h6 className="mb-4 flex items-center justify-center font-semibold md:justify-start">
                                 The smarter way to start your new idea.

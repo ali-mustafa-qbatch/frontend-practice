@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from '../assets/Qbatch_logo.svg'
+import logo from '../assets/navbar_logo.png'
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -20,9 +20,9 @@ const Navbar = () => {
                 <div className="flex justify-between items-center h-16">
                     <div className="inline-flex">
                         <Link to="/">
-                            <img src={logo} alt="Qbatch Logo" className="h-8 w-auto" />
+                            <img src={logo} alt="Qbatch Logo" className="h-14 w-auto" />
                         </Link>
-                        <div className="hidden md:flex space-x-6">
+                        <div className="hidden md:flex space-x-6 items-center">
                             <Link to="#" className="text-gray-400 hover:text-gray-200 px-3 py-2 text-sm font-medium">Pricing</Link>
                             <Link to="#" className="text-gray-400 hover:text-gray-200 px-3 py-2 text-sm font-medium">About</Link>
                             <Link to="#" className="text-gray-400 hover:text-gray-200 px-3 py-2 text-sm font-medium">Blog</Link>
