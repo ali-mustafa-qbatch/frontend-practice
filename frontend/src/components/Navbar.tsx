@@ -23,14 +23,14 @@ const Navbar = () => {
                             <img src={logo} alt="Qbatch Logo" className="h-8 w-auto" />
                         </Link>
                         <div className="hidden md:flex space-x-6">
-                            <Link to="#" className="text-gray-400 hover:text-blue-600 px-3 py-2 text-sm font-medium">Pricing</Link>
-                            <Link to="#" className="text-gray-400 hover:text-blue-600 px-3 py-2 text-sm font-medium">About</Link>
-                            <Link to="#" className="text-gray-400 hover:text-blue-600 px-3 py-2 text-sm font-medium">Blog</Link>
-                            <Link to="#" className="text-gray-400 hover:text-blue-600 px-3 py-2 text-sm font-medium">Wall of Love</Link>
+                            <Link to="#" className="text-gray-400 hover:text-gray-200 px-3 py-2 text-sm font-medium">Pricing</Link>
+                            <Link to="#" className="text-gray-400 hover:text-gray-200 px-3 py-2 text-sm font-medium">About</Link>
+                            <Link to="#" className="text-gray-400 hover:text-gray-200 px-3 py-2 text-sm font-medium">Blog</Link>
+                            <Link to="#" className="text-gray-400 hover:text-gray-200 px-3 py-2 text-sm font-medium">Wall of Love</Link>
                             <div className="relative inline-block text-left">
                                 <button
                                     onClick={toggleDropdown}
-                                    className="text-gray-400 hover:text-blue-600 px-3 py-2 text-sm font-medium inline-flex items-center"
+                                    className="text-gray-400 hover:text-gray-200 px-3 py-2 text-sm font-medium inline-flex items-center"
                                     type="button"
                                 >
                                     Resources
@@ -41,10 +41,10 @@ const Navbar = () => {
 
                                 <div className={`absolute right-0 mt-2 w-44 z-10 ${isDropdownOpen ? 'block' : 'hidden'} bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-700`}>
                                     <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
-                                        <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a></li>
-                                        <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a></li>
-                                        <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a></li>
-                                        <li><a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a></li>
+                                        <li><a href="#" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a></li>
+                                        <li><a href="#" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a></li>
+                                        <li><a href="#" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a></li>
+                                        <li><a href="#" className="block px-4 py-2 hover:bg-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@ const Navbar = () => {
                     </div>
 
                     <div className="hidden md:flex space-x-6">
-                        <Link to="/sign-in" className="text-gray-400 hover:text-blue-600 px-3 py-2 text-sm font-medium">Sign in</Link>
+                        <Link to="/sign-in" className="text-gray-400 hover:text-gray-200 px-3 py-2 text-sm font-medium">Sign in</Link>
                         <Link to="#" className="text-gray-200 hover:text-blue-600 px-3 py-2 text-sm font-medium inline-flex gap-1">
                             Request a Demo <span className="ml-2" style={{color:"#1b5cb7"}}>→</span>
                         </Link>
@@ -75,23 +75,23 @@ const Navbar = () => {
 
             <div className={`md:hidden ${isOpen ? 'block' : 'hidden'}`} id="mobile-menu">
                 <div className="px-4 pt-4 pb-6 space-y-2 border-b shadow-sm" style={{backgroundColor:"#121d2d"}}>
-                    <Link to="#" className="block text-gray-400 hover:text-blue-600 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="#" className="block text-gray-400 hover:text-gray-200 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
                         Pricing
                     </Link>
-                    <Link to="#" className="block text-gray-400 hover:text-blue-600 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="#" className="block text-gray-400 hover:text-gray-200 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
                         About
                     </Link>
-                    <Link to="#" className="block text-gray-400 hover:text-blue-600 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="#" className="block text-gray-400 hover:text-gray-200 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
                         Blog
                     </Link>
-                    <Link to="#" className="block text-gray-400 hover:text-blue-600 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
+                    <Link to="#" className="block text-gray-400 hover:text-gray-200 px-3 py-2 text-base font-medium" onClick={() => setIsOpen(false)}>
                         Wall of Love
                     </Link>
 
                     <div className="relative">
                         <button
                             onClick={toggleDropdown}
-                            className="w-full text-left text-gray-400 hover:text-blue-600 px-3 py-2 text-base font-medium inline-flex items-center justify-between"
+                            className="w-full text-left text-gray-400 hover:text-gray-200 px-3 py-2 text-base font-medium inline-flex items-center justify-between"
                             type="button"
                         >
                             Resources
@@ -103,16 +103,16 @@ const Navbar = () => {
                         {isDropdownOpen && (
                             <div className="mt-2 bg-white border border-gray-200 rounded-lg shadow-sm">
                                 <ul className="py-2 text-sm text-gray-700">
-                                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Dashboard</a></li>
-                                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Settings</a></li>
-                                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Earnings</a></li>
-                                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-100">Sign out</a></li>
+                                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-200">Dashboard</a></li>
+                                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-200">Settings</a></li>
+                                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-200">Earnings</a></li>
+                                    <li><a href="#" className="block px-4 py-2 hover:bg-gray-200">Sign out</a></li>
                                 </ul>
                             </div>
                         )}
                     </div>
                     <hr />
-                    <Link to="/sign-in" className="block text-gray-400 hover:text-blue-600 px-3 py-2 text-base font-medium">
+                    <Link to="/sign-in" className="block text-gray-400 hover:text-gray-200 px-3 py-2 text-base font-medium">
                         Sign in
                     </Link>
                     <Link to="#" className="text-gray-200 hover:text-blue-600 px-3 py-2 text-base font-medium inline-flex items-center gap-1">
