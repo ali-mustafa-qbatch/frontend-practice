@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 interface SignUpFormInputs {
     name: string,
@@ -15,10 +16,11 @@ interface SignUpFormInputs {
 };
 
 const SignUpForm = () => {
-    const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<SignUpFormInputs>();
+    const { register, handleSubmit, setValue, watch, reset, formState: { errors } } = useForm<SignUpFormInputs>();
     const onSubmit: SubmitHandler<SignUpFormInputs> = data => console.log(data);
     const [passwordToggle, setPasswordToggle] = useState(false);
     const [confirmPasswordToggle, setConfirmPasswordToggle] = useState(false);
+    const navigate = useNavigate();
     const password = watch('password');
 
     const handlePasswordToggle = () => {
@@ -39,6 +41,12 @@ const SignUpForm = () => {
         setValue('zipCode', value);
     };
 
+    const handleFormSubmit = (data: any) => {
+        onSubmit(data);
+        reset();
+        navigate('/sign-in');
+    }
+
     return (
         <>
             <div className="bg-[#121d2d]">
@@ -47,7 +55,7 @@ const SignUpForm = () => {
 
                         <div className="p-6 sm:p-8 rounded-2xl bg-white border border-gray-200 shadow-sm">
                             <h1 className="text-slate-900 text-center text-3xl font-semibold">Sign up</h1>
-                            <form className="mt-12 space-y-6" onSubmit={handleSubmit(onSubmit)}>
+                            <form className="mt-12 space-y-6" onSubmit={handleSubmit(handleFormSubmit)}>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 

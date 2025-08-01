@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm, type SubmitHandler } from "react-hook-form";
 
 interface SignInFormInputs {
@@ -8,12 +8,19 @@ interface SignInFormInputs {
 };
 
 const SignInForm = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm<SignInFormInputs>();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm<SignInFormInputs>();
     const onSubmit: SubmitHandler<SignInFormInputs> = data => console.log(data);
     const [passwordToggle, setPasswordToggle] = useState(false);
+    const navigate = useNavigate();
 
     const handlePasswordToggle = () => {
         setPasswordToggle(!passwordToggle);
+    }
+
+    const handleFormSubmit = (data: any) => {
+        onSubmit(data);
+        reset();
+        navigate('/');
     }
 
     return (
@@ -24,7 +31,7 @@ const SignInForm = () => {
 
                         <div className="p-6 sm:p-8 rounded-2xl bg-white border border-gray-200 shadow-sm">
                             <h1 className="text-slate-900 text-center text-3xl font-semibold">Sign in</h1>
-                            <form className="mt-12 space-y-6" onSubmit={handleSubmit(onSubmit)}>
+                            <form className="mt-12 space-y-6" onSubmit={handleSubmit(handleFormSubmit)}>
                                 <div>
                                     <label className="text-slate-900 text-sm font-medium mb-2 block">Email</label>
                                     <div className="relative flex items-center">
