@@ -7,9 +7,9 @@ const Footer = () => {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="mx-6 py-10 text-center md:text-left">
                     <div className="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-5">
-                        <div className="">
+                        <div className="sm:justify-start">
                             <Link to="/">
-                                <img src={logo} alt="Qbatch Logo" className="h-14 w-auto" />
+                                <img src={logo} alt="Qbatch Logo" className="h-14 w-auto sm:mx-0 md:mx-0 mx-auto" />
                             </Link>
                             <h6 className="mb-4 flex items-center justify-center font-semibold md:justify-start">
                                 The smarter way to start your new idea.
