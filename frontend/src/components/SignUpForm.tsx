@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 interface SignUpFormInputs {
     name: string,
@@ -40,18 +38,6 @@ const SignUpForm = () => {
         setValue('zipCode', value);
     };
 
-    const showErrorToast = () => {
-        toast.error("Please fix the errors before submitting.");
-    };
-
-    const handleFormSubmit = (data: any) => {
-        if (Object.keys(errors).length > 0) {
-            showErrorToast();
-        } else {
-            onSubmit(data);
-        }
-    };
-
     return (
         <>
             <div className="bg-[#121d2d]">
@@ -60,7 +46,7 @@ const SignUpForm = () => {
 
                         <div className="p-6 sm:p-8 rounded-2xl bg-white border border-gray-200 shadow-sm">
                             <h1 className="text-slate-900 text-center text-3xl font-semibold">Sign up</h1>
-                            <form className="mt-12 space-y-6" onSubmit={handleSubmit(handleFormSubmit)}>
+                            <form className="mt-12 space-y-6" onSubmit={handleSubmit(onSubmit)}>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
