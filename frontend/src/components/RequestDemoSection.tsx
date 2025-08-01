@@ -2,7 +2,7 @@ const RequestDemoSection = () => {
     return (
         <section className="bg-[#f1f5fb] text-center flex flex-col justify-center items-center py-10">
             <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-16">
-                <h1 className="font-['Playfair_Display'] text-5xl lg:text-5xl md:text-5xl text-[#1f2a3c] m-10 leading-tight">
+                <h1 className="font-['Playfair_Display'] text-2xl lg:text-5xl md:text-5xl text-[#1f2a3c] m-10 leading-tight">
                     Say goodbye to long queues, big <br /> updates, and
                     <span className="text-[#62cca8]"> confusion</span>.
                 </h1>
