@@ -1,6 +1,37 @@
-// import heroVideo from '../assets/video.mp4'
+import { useEffect, useRef, useState } from 'react';
+import heroVideo from '../assets/video.mp4';
 
 const HeroSection = () => {
+	const videoRef = useRef<HTMLVideoElement>(null);
+	const [isPlaying, setIsPlaying] = useState(false);
+
+	const handleTogglePlay = () => {
+		const video = videoRef.current;
+		if (!video) return;
+
+		if (video.paused || video.ended) {
+			video.play();
+		} else {
+			video.pause();
+		}
+	};
+
+	useEffect(() => {
+		const video = videoRef.current;
+		if (!video) return;
+
+		const handlePlay = () => setIsPlaying(true);
+		const handlePause = () => setIsPlaying(false);
+
+		video.addEventListener('play', handlePlay);
+		video.addEventListener('pause', handlePause);
+
+		return () => {
+			video.removeEventListener('play', handlePlay);
+			video.removeEventListener('pause', handlePause);
+		};
+	}, []);
+
 	return (
 		<section className="relative bg-[#121d2d] text-white overflow-hidden">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-40 grid grid-cols-1 md:grid-cols-2 gap-8 items-center relative z-10">
@@ -21,40 +52,35 @@ const HeroSection = () => {
 					</div>
 				</div>
 
-				<div className="relative inline-block">
+				<div className="relative w-[464px] h-[309px] mx-auto">
 					<div className="absolute top-4 left-4 w-full h-full border border-gray-400 opacity-30 z-0"></div>
 
-					<img
-						src="https://images.unsplash.com/photo-1607746882042-944635dfe10e"
-						alt="a girl"
-						className="relative z-10 shadow-lg"
-					/>
-
-					{/* <video
-						className="relative z-10 shadow-lg h-[309px] w-[464]"
-						controls
-						autoPlay
-						loop
+					<video
+						ref={videoRef}
+						onClick={handleTogglePlay}
+						className="relative z-10 w-full h-full object-cover cursor-pointer"
 						muted
+						loop
+						playsInline
+						controls={false}
 					>
 						<source src={heroVideo} type="video/mp4" />
 						Your browser does not support the video tag.
-					</video> */}
+					</video>
 
-					<div className="absolute inset-0 flex items-center justify-center z-20">
-						<button className="w-16 h-16 rounded-full bg-white bg-opacity-80 flex items-center justify-center shadow-md">
-							<svg
-								className="w-6 h-6 text-blue-600"
-								fill="currentColor"
-								viewBox="0 0 20 20"
+					{!isPlaying && (
+						<div className="absolute inset-0 flex items-center justify-center z-20">
+							<button
+								onClick={handleTogglePlay}
+								className="w-20 h-20 rounded-full bg-white bg-opacity-80 flex items-center justify-center shadow-md transition-opacity duration-700"
 							>
-								<path d="M6 4l10 6-10 6V4z" />
-							</svg>
-						</button>
-					</div>
+								<svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+									<path d="M6 4l10 6-10 6V4z" />
+								</svg>
+							</button>
+						</div>
+					)}
 				</div>
-
-
 			</div>
 
 			<svg
