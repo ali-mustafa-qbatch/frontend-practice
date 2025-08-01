@@ -15,10 +15,11 @@ interface SignUpFormInputs {
 };
 
 const SignUpForm = () => {
-    const { register, handleSubmit, setValue, formState: { errors } } = useForm<SignUpFormInputs>();
+    const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<SignUpFormInputs>();
     const onSubmit: SubmitHandler<SignUpFormInputs> = data => console.log(data);
     const [passwordToggle, setPasswordToggle] = useState(false);
     const [confirmPasswordToggle, setConfirmPasswordToggle] = useState(false);
+    const password = watch('password');
 
     const handlePasswordToggle = () => {
         setPasswordToggle(!passwordToggle);
@@ -57,9 +58,12 @@ const SignUpForm = () => {
                                                 {...register("name", {
                                                     required: "Full name is required"
                                                 })}
-                                                name="name" type="text" className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-[#2173ea]" placeholder="Enter full name"
+                                                name="name" type="text" className={`w-full text-slate-900 text-sm px-4 py-3 pr-8 rounded-md outline-[#2173ea] ${errors.name ? 'border border-red-600' : 'border border-slate-300'}`} placeholder="Enter full name"
                                             />
                                         </div>
+                                        {errors.name && (
+                                            <p className="text-red-600 text-sm mt-1">{errors.name.message}</p>
+                                        )}
                                     </div>
 
                                     <div>
@@ -68,11 +72,17 @@ const SignUpForm = () => {
                                             <input
                                                 {...register("email", {
                                                     required: "Email is required",
-                                                    pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+                                                    pattern: {
+                                                        value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                                                        message: "Invalid email format."
+                                                    }
                                                 })}
-                                                name="email" type="text" className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-[#2173ea]" placeholder="ali@example.com"
+                                                name="email" type="text" className={`w-full text-slate-900 text-sm px-4 py-3 pr-8 rounded-md outline-[#2173ea] ${errors.email ? 'border border-red-600' : 'border border-slate-300'}`} placeholder="ali@example.com"
                                             />
                                         </div>
+                                        {errors.email && (
+                                            <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>
+                                        )}
                                     </div>
 
                                     <div>
@@ -90,12 +100,15 @@ const SignUpForm = () => {
                                                         message: "Password should atleast 1 number, 1 special char, 1 upper-case and 1 lower-case."
                                                     }
                                                 })}
-                                                name="password" type={passwordToggle ? "text" : "password"} className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline--[#2173ea]" placeholder="Enter password"
+                                                name="password" type={passwordToggle ? "text" : "password"} className={`w-full text-slate-900 text-sm px-4 py-3 pr-8 rounded-md outline-[#2173ea] ${errors.password ? 'border border-red-600' : 'border border-slate-300'}`} placeholder="Enter password"
                                             />
                                             <svg onClick={handlePasswordToggle} xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-4 h-4 absolute right-4 cursor-pointer" viewBox="0 0 128 128">
                                                 <path d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z" data-original="#000000"></path>
                                             </svg>
                                         </div>
+                                        {errors.password && (
+                                            <p className="text-red-600 text-sm mt-1">{errors.password.message}</p>
+                                        )}
                                     </div>
 
                                     <div>
@@ -104,6 +117,7 @@ const SignUpForm = () => {
                                             <input
                                                 {...register('confirmPassword', {
                                                     required: "Confirm Password is required",
+                                                    validate: value => value === password || "Passwords donot match",
                                                     minLength: {
                                                         value: 8,
                                                         message: "Password should have atleast 8 chars."
@@ -113,12 +127,15 @@ const SignUpForm = () => {
                                                         message: "Password should atleast 1 number, 1 special char, 1 upper-case and 1 lower-case."
                                                     }
                                                 })}
-                                                name="confirm-password" type={confirmPasswordToggle ? "text" : "password"} className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline--[#2173ea]" placeholder="Confirm password"
+                                                type={confirmPasswordToggle ? "text" : "password"} className={`w-full text-slate-900 text-sm px-4 py-3 pr-8 rounded-md outline-[#2173ea] ${errors.confirmPassword ? 'border border-red-600' : 'border border-slate-300'}`} placeholder="Confirm password"
                                             />
                                             <svg onClick={handleConfirmPasswordToggle} xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-4 h-4 absolute right-4 cursor-pointer" viewBox="0 0 128 128">
                                                 <path d="M64 104C22.127 104 1.367 67.496.504 65.943a4 4 0 0 1 0-3.887C1.367 60.504 22.127 24 64 24s62.633 36.504 63.496 38.057a4 4 0 0 1 0 3.887C126.633 67.496 105.873 104 64 104zM8.707 63.994C13.465 71.205 32.146 96 64 96c31.955 0 50.553-24.775 55.293-31.994C114.535 56.795 95.854 32 64 32 32.045 32 13.447 56.775 8.707 63.994zM64 88c-13.234 0-24-10.766-24-24s10.766-24 24-24 24 10.766 24 24-10.766 24-24 24zm0-40c-8.822 0-16 7.178-16 16s7.178 16 16 16 16-7.178 16-16-7.178-16-16-16z" data-original="#000000"></path>
                                             </svg>
                                         </div>
+                                        {errors.confirmPassword && (
+                                            <p className="text-red-600 text-sm mt-1">{errors.confirmPassword.message}</p>
+                                        )}
                                     </div>
 
                                     <div>
@@ -128,9 +145,12 @@ const SignUpForm = () => {
                                                 {...register("address", {
                                                     required: "Address is required"
                                                 })}
-                                                name="address" type="text" className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-[#2173ea]" placeholder="123 Street, XYZ City"
+                                                name="address" type="text" className={`w-full text-slate-900 text-sm px-4 py-3 pr-8 rounded-md outline-[#2173ea] ${errors.address ? 'border border-red-600' : 'border border-slate-300'}`} placeholder="123 Street, XYZ City"
                                             />
                                         </div>
+                                        {errors.address && (
+                                            <p className="text-red-600 text-sm mt-1">{errors.address.message}</p>
+                                        )}
                                     </div>
 
                                     <div>
@@ -160,10 +180,13 @@ const SignUpForm = () => {
                                                         message: "Phone number should contain exactly 10 characters."
                                                     }
                                                 })}
-                                                name="phone-number" type="text" className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 rounded-md outline-[#2173ea]" placeholder="300000000"
+                                                name="phone-number" type="text" className={`w-full text-slate-900 text-sm px-4 py-3 pr-8 rounded-md outline-[#2173ea] ${errors.phoneNumber ? 'border border-red-600' : 'border border-slate-300'}`} placeholder="300000000"
                                                 onChange={handlePhoneChange}
                                             />
                                         </div>
+                                        {errors.phoneNumber && (
+                                            <p className="text-red-600 text-sm mt-1">{errors.phoneNumber.message}</p>
+                                        )}
                                     </div>
 
                                     <div>
@@ -177,9 +200,12 @@ const SignUpForm = () => {
                                                     }
 
                                                 })}
-                                                name="website" type="text" className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-[#2173ea]" placeholder="https://www.example.com"
+                                                name="website" type="text" className={`w-full text-slate-900 text-sm px-4 py-3 pr-8 rounded-md outline-[#2173ea] ${errors.website ? 'border border-red-600' : 'border border-slate-300'}`} placeholder="https://www.example.com"
                                             />
                                         </div>
+                                        {errors.website && (
+                                            <p className="text-red-600 text-sm mt-1">{errors.website.message}</p>
+                                        )}
                                     </div>
 
                                     <div>
@@ -200,10 +226,13 @@ const SignUpForm = () => {
                                                         message: "Zip Code should contain exactly 5 characters."
                                                     }
                                                 })}
-                                                name="zip-code" type="text" className="w-full text-slate-900 text-sm border border-slate-300 px-4 py-3 pr-8 rounded-md outline-[#2173ea]" placeholder="12345"
+                                                name="zip-code" type="text" className={`w-full text-slate-900 text-sm px-4 py-3 pr-8 rounded-md outline-[#2173ea] ${errors.zipCode ? 'border border-red-600' : 'border border-slate-300'}`} placeholder="12345"
                                                 onChange={handleZipCodeChange}
                                             />
                                         </div>
+                                        {errors.zipCode && (
+                                            <p className="text-red-600 text-sm mt-1">{errors.zipCode.message}</p>
+                                        )}
                                     </div>
 
                                 </div>
@@ -218,7 +247,6 @@ const SignUpForm = () => {
                     </div>
                 </div>
             </div>
-            <ToastContainer />
         </>
     )
 }
