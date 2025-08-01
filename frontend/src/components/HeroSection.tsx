@@ -52,7 +52,7 @@ const HeroSection = () => {
 					</div>
 				</div>
 
-				<div className="relative w-[464px] h-[309px] mx-auto">
+				<div className="relative w-full max-w-[464px] aspect-video mx-auto">
 					<div className="absolute top-4 left-4 w-full h-full border border-gray-400 opacity-30 z-0"></div>
 
 					<video
