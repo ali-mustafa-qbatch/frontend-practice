@@ -1,27 +1,63 @@
+import { z } from 'zod';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
+const featuresSchema = z.object({
+    id: z.number(),
+    heading: z.string().min(1, "Heading is required"),
+    text: z.string().min(1, "Text is required"),
+    imageLink: z.string(),
+    altText: z.string().optional(),
+});
+
+export const FeaturesResponseSchema = z.array(featuresSchema);
+export type Feature = z.infer<typeof featuresSchema>;
+
+const fallbackFeatures: Feature[] = [
+    {
+        id: 1,
+        heading: 'Advanced Features',
+        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo.',
+        imageLink: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
+        altText: 'a person working on a laptop'
+    },
+    {
+        id: 2,
+        heading: 'Advanced Features',
+        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo.',
+        imageLink: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
+        altText: 'a creative workspace'
+    },
+    {
+        id: 3,
+        heading: 'Advanced Features',
+        text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo.',
+        imageLink: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
+        altText: 'a modern office setting'
+    }
+]
+
 export function FeaturesSection() {
-    const features = [
-        {
-            id: 1,
-            heading: 'Advanced Features',
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo.',
-            imageLink: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
-            altText: 'a person working on a laptop'
-        },
-        {
-            id: 2,
-            heading: 'Advanced Features',
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo.',
-            imageLink: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
-            altText: 'a creative workspace'
-        },
-        {
-            id: 3,
-            heading: 'Advanced Features',
-            text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nulla neque omnis dolore explicabo, voluptatem quo.',
-            imageLink: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c',
-            altText: 'a modern office setting'
+    const [features, setFeatures] = useState<Feature[]>([]);
+
+    useEffect(() => {
+        const fetchFeatures = async (): Promise<Feature[]> => {
+            try {
+                const response = await axios.get(`${import.meta.env.VITE_API_URL}/features`)
+                const validated = FeaturesResponseSchema.parse(response.data);
+                return validated;
+            } catch (err) {
+                console.error("Failed to fetch features data. Loading fallback data...");
+                return fallbackFeatures;
+            }
+        };
+        const loadFeatures = async () => {
+            const data = await fetchFeatures();
+            setFeatures(data);
         }
-    ]
+        loadFeatures()
+    }, []);
+
     return (
         <section>
             <div className="relative bg-[#121d2d] text-white overflow-hidden">
