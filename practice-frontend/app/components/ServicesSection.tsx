@@ -62,7 +62,8 @@ export function ServicesSection() {
                 return validated;
             } catch (err) {
                 console.error("Failed to fetch services data. Loading fallback data...");
-                return fallbackServices;
+                const validated = ServicesResponseSchema.parse(fallbackServices);
+                return validated;
             }
         };
         const loadServices = async () => {
